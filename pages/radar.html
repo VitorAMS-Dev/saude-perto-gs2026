@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de Atendimento Itinerante — Saúde Perto</title>
+<meta name="description" content="Radar demonstrativo de unidades móveis e mutirões de saúde.">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/storage.js" defer></script>
+<script src="../js/radar.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo no-print">
+  <div class="topo-in">
+    <a class="marca" href="../index.html" aria-label="Saúde Perto, página inicial">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Saúde Perto</span>
+    </a>
+    <button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="../index.html">Início</a>
+      <a href="agendar.html">Agendamentos</a>
+      <a href="vacinas.html">Vacinas</a>
+      <a href="radar.html" aria-current="page">Radar de Unidades</a>
+      <a href="emergencia.html">Emergência</a>
+      <a href="domiciliar.html">Atendimento Domiciliar</a>
+      <a href="conta.html">Minha Conta</a>
+      <button id="btn-sair" class="menu-sair" type="button">Sair</button>
+    </nav>
+    <button id="btn-modo" class="btn-modo" type="button" aria-pressed="false">Modo Conexão Fraca</button>
+    <div class="usuario"><span class="avatar" aria-hidden="true">MO</span><span class="usuario-nome">Maria Oliveira<small>Usuária demonstrativa</small></span></div>
+  </div>
+</header>
+<main id="conteudo" class="container radar-pagina">
+  <header class="radar-cabecalho">
+    <div>
+      <p class="selo selo-verde">Cobertura itinerante da região</p>
+      <h1>Radar de Atendimento Itinerante</h1>
+      <p class="intro">Encontre equipes de saúde próximas à sua comunidade e acompanhe as próximas paradas.</p>
+    </div>
+  </header>
+
+  <section class="radar-filtros" aria-label="Filtros do radar">
+    <label class="radar-busca" for="busca-radar">
+      <span>Pesquisar</span>
+      <span class="radar-busca-controle">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+        <input id="busca-radar" type="search" placeholder="Comunidade ou unidade móvel" autocomplete="off">
+      </span>
+    </label>
+    <div id="filtros-radar" class="filtros" role="group" aria-label="Filtrar unidades">
+      <button class="filtro" type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+      <button class="filtro" type="button" data-filtro="vans" aria-pressed="false">Vans</button>
+      <button class="filtro" type="button" data-filtro="barcos" aria-pressed="false">Barcos</button>
+      <button class="filtro" type="button" data-filtro="equipes" aria-pressed="false">Equipes volantes</button>
+      <button class="filtro" type="button" data-filtro="mutiroes" aria-pressed="false">Mutirões</button>
+      <button class="filtro" type="button" data-filtro="confirmados" aria-pressed="false">Confirmados</button>
+      <button class="filtro" type="button" data-filtro="em-deslocamento" aria-pressed="false">Em deslocamento</button>
+      <button class="filtro" type="button" data-filtro="vagas-encerradas" aria-pressed="false">Vagas encerradas</button>
+    </div>
+  </section>
+
+  <section class="radar-layout" aria-label="Mapa e detalhes das unidades">
+    <div class="mapa-card card">
+      <div class="mapa-titulo">
+        <div><strong>Mapa demonstrativo da região</strong><span id="mapa-resumo"></span></div>
+        <div class="legenda-radar" aria-label="Legenda de status">
+          <span><i class="ponto verde"></i>Confirmado</span>
+          <span><i class="ponto azul"></i>Em deslocamento</span>
+          <span><i class="ponto vermelho"></i>Vagas encerradas</span>
+        </div>
+      </div>
+      <div id="mapa-radar" class="mapa-radar" aria-label="Mapa fictício das comunidades atendidas"></div>
+    </div>
+    <aside id="painel-unidade" class="painel-unidade card" aria-live="polite"></aside>
+  </section>
+
+  <section aria-labelledby="t-unidades">
+    <div class="titulo-lista"><h2 id="t-unidades">Unidades disponíveis</h2><span id="contador-unidades"></span></div>
+    <div id="lista-unidades" class="lista-radar"></div>
+  </section>
+</main>
+<footer class="rodape no-print">
+  <p>Saúde Perto é um protótipo acadêmico (Global Solution 2026/2 · FIAP). Todos os dados são fictícios. Nenhum agendamento é confirmação real.</p>
+</footer>
+</body>
+</html>

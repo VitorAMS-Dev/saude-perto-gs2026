@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacinas — Saúde Perto</title>
+<meta name="description" content="Saúde Perto: a saúde pública mais próxima de quem precisa.">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/storage.js" defer></script>
+<script src="../js/vacinas.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo no-print">
+  <div class="topo-in">
+    <a class="marca" href="../index.html" aria-label="Saúde Perto, página inicial">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Saúde Perto</span>
+    </a>
+    <button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="../index.html">Início</a>
+      <a href="agendar.html">Agendamentos</a>
+      <a href="vacinas.html" aria-current="page">Vacinas</a>
+      <a href="radar.html">Radar de Unidades</a>
+      <a href="emergencia.html">Emergência</a>
+      <a href="domiciliar.html">Atendimento Domiciliar</a>
+      <a href="conta.html">Minha Conta</a>
+      <button id="btn-sair" class="menu-sair" type="button">Sair</button>
+    </nav>
+    <button id="btn-modo" class="btn-modo" type="button" aria-pressed="false">Modo Conexão Fraca</button>
+    <div class="usuario"><span class="avatar" aria-hidden="true">MO</span><span class="usuario-nome">Maria Oliveira<small>Usuária demonstrativa</small></span></div>
+  </div>
+</header>
+<main id="conteudo" class="container">
+  <h1>Carteira de vacinação e campanhas</h1>
+  <p class="faixa">Dados fictícios para demonstração. O registro é simulado e não substitui a carteira oficial do SUS. Os prazos são exemplos e não são recomendações médicas.</p>
+
+  <section id="carteira" aria-labelledby="t-cart">
+    <h2 id="t-cart">Minha carteira</h2>
+    <div class="filtros" role="group" aria-label="Filtrar vacinas">
+      <button class="filtro" type="button" data-filtro="todas" aria-pressed="true">Todas <span>0</span></button>
+      <button class="filtro" type="button" data-filtro="aplicadas" aria-pressed="false">Aplicadas <span>0</span></button>
+      <button class="filtro" type="button" data-filtro="pendentes" aria-pressed="false">Pendentes <span>0</span></button>
+      <button class="filtro" type="button" data-filtro="reforco" aria-pressed="false">Reforço próximo <span>0</span></button>
+    </div>
+    <div id="lista-vacinas" class="lista-cards" aria-live="polite"></div>
+  </section>
+
+  <section id="campanhas" aria-labelledby="t-camp">
+    <h2 id="t-camp">Campanhas de vacinação</h2>
+    <div id="lista-campanhas" class="lista-cards"></div>
+  </section>
+</main>
+<footer class="rodape no-print">
+  <p>Saúde Perto é um protótipo acadêmico (Global Solution 2026/2 · FIAP). Todos os dados são fictícios. Não há integração com o SUS e nenhum agendamento é confirmação real de unidade de saúde.</p>
+</footer>
+</body>
+</html>

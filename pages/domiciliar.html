@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atendimento Domiciliar — Saúde Perto</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/storage.js" defer></script><script src="../js/domiciliar.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo no-print"><div class="topo-in">
+<a class="marca" href="../index.html"><svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><span>Saúde Perto</span></a>
+<button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav id="menu" class="menu" aria-label="Principal">
+<a href="../index.html">Início</a><a href="agendar.html">Agendamentos</a><a href="vacinas.html">Vacinas</a><a href="radar.html">Radar de Unidades</a><a href="emergencia.html">Emergência</a><a href="domiciliar.html" aria-current="page">Atendimento Domiciliar</a><a href="conta.html">Minha Conta</a><button id="btn-sair" class="menu-sair" type="button">Sair</button>
+</nav><button id="btn-modo" class="btn-modo" type="button" aria-pressed="false">Modo Conexão Fraca</button>
+</div></header>
+<main id="conteudo" class="container">
+<header class="pagina-cabecalho"><div><p class="selo selo-verde">Cuidado no seu endereço</p><h1>Atendimento Domiciliar</h1><p class="intro">Consulte sua próxima visita e o histórico de atendimentos realizados.</p></div></header>
+<section aria-labelledby="t-proxima"><h2 id="t-proxima">Próxima visita</h2><div id="card-visita"></div></section>
+<section aria-labelledby="t-historico-domiciliar"><h2 id="t-historico-domiciliar">Histórico de Atendimento Domiciliar</h2><div id="lista-visitas" class="lista-cards"></div></section>
+</main>
+<footer class="rodape no-print"><p>Informações fictícias previamente cadastradas para demonstração. O cidadão pode apenas consultar estas visitas.</p></footer>
+</body>
+</html>

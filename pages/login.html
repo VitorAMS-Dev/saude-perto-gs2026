@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrar — Saúde Perto</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/storage.js" defer></script>
+<script src="../js/login.js" defer></script>
+</head>
+<body class="login-body">
+<main class="login-layout" aria-label="Acesso ao Saúde Perto">
+  <section class="login-apresentacao" aria-labelledby="login-titulo">
+    <a class="marca marca-login" href="login.html" aria-label="Saúde Perto">
+      <svg viewBox="0 0 32 32" width="40" height="40" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Saúde Perto</span>
+    </a>
+    <h1 id="login-titulo">Sua saúde,<br>mais perto de você.</h1>
+    <p>Consulte atendimentos, vacinas, equipes itinerantes e visitas domiciliares em um só lugar.</p>
+  </section>
+  <section class="login-card card" aria-labelledby="t-login">
+    <p class="login-selo">Acesso do paciente</p>
+    <h2 id="t-login">Bem-vinda de volta</h2>
+    <p class="intro">Entre com suas informações para acompanhar seus atendimentos.</p>
+    <form id="form-login" novalidate>
+      <div class="campo"><label for="usuario">CPF ou usuário</label><input id="usuario" type="text" autocomplete="username" value="paciente" aria-describedby="erro-login"></div>
+      <div class="campo"><label for="senha">Senha</label><input id="senha" type="password" autocomplete="current-password" value="123456" aria-describedby="erro-login"></div>
+      <p id="erro-login" class="erro" aria-live="polite"></p>
+      <button class="btn btn-grande" type="submit">Entrar</button>
+    </form>
+    <button id="esqueci-senha" class="link-botao" type="button">Esqueci minha senha</button>
+    <p class="aviso-demo">Login demonstrativo. Não insira senhas reais ou informações de saúde sensíveis.</p>
+  </section>
+</main>
+</body>
+</html>

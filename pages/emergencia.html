@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atendimento de Emergência — Saúde Perto</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/storage.js" defer></script><script src="../js/emergencia.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo no-print"><div class="topo-in">
+<a class="marca" href="../index.html"><svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><span>Saúde Perto</span></a>
+<button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav id="menu" class="menu" aria-label="Principal">
+<a href="../index.html">Início</a><a href="agendar.html">Agendamentos</a><a href="vacinas.html">Vacinas</a><a href="radar.html">Radar de Unidades</a><a href="emergencia.html" aria-current="page">Emergência</a><a href="domiciliar.html">Atendimento Domiciliar</a><a href="conta.html">Minha Conta</a><button id="btn-sair" class="menu-sair" type="button">Sair</button>
+</nav><button id="btn-modo" class="btn-modo" type="button" aria-pressed="false">Modo Conexão Fraca</button>
+</div></header>
+<main id="conteudo" class="container">
+<header class="pagina-cabecalho"><div><p class="selo selo-verde">Avaliação inicial online</p><h1>Atendimento de Emergência</h1><p class="intro">Solicite uma avaliação assistida enquanto aguarda a orientação adequada.</p></div></header>
+<aside id="alerta-grave" class="alerta-critico" role="alert" hidden><strong>Possível situação grave.</strong><span>Se houver dor no peito intensa, falta de ar intensa, desmaio ou sinais de AVC, ligue imediatamente para o SAMU 192. Não aguarde a fila on-line.</span><a class="btn btn-perigo" href="tel:192">Ligar para o SAMU 192</a></aside>
+<div class="duas-colunas emergencia-layout">
+<form id="form-emergencia" class="card form" novalidate>
+<fieldset><legend><span class="num">1</span> Identificação</legend>
+<div class="campo"><label for="em-nome">Nome completo</label><input id="em-nome" required></div>
+<div class="campo"><label for="em-cpf">CPF fictício</label><input id="em-cpf" inputmode="numeric" placeholder="000.000.000-00" required></div>
+<div class="campo"><label for="em-nascimento">Data de nascimento</label><input id="em-nascimento" type="date" required></div>
+<div class="campo"><label for="em-telefone">Telefone para contato</label><input id="em-telefone" type="tel" required></div>
+</fieldset>
+<fieldset><legend><span class="num">2</span> Local e referência</legend>
+<div class="campo"><label for="em-comunidade">Comunidade ou endereço de referência</label><input id="em-comunidade" required></div>
+<div class="campo"><label for="em-ubs">UBS de referência</label><select id="em-ubs" required><option value="">Selecione</option><option>UBS Central</option><option>UBS Vale do Sol</option><option>Posto de Saúde Serra Azul</option></select></div>
+</fieldset>
+<fieldset><legend><span class="num">3</span> Avaliação inicial</legend>
+<div class="campo"><label for="em-motivo">Motivo da solicitação</label><select id="em-motivo" required><option value="">Selecione</option><option>Pressão arterial elevada</option><option>Dor de cabeça intensa</option><option>Febre</option><option>Dor no peito</option><option>Falta de ar</option><option>Tontura ou desmaio</option><option>Mal-estar</option><option>Outros</option></select></div>
+<div class="campo"><label for="em-sintomas">Descrição dos sintomas</label><textarea id="em-sintomas" rows="4" required></textarea></div>
+<div class="campo"><label for="em-tempo">Há quanto tempo apresenta os sintomas</label><input id="em-tempo" required></div>
+<div class="campo"><label for="em-pressao">Pressão arterial, caso tenha medido</label><input id="em-pressao" placeholder="Ex.: 120x80"></div>
+<div class="campo"><label for="em-infos">Informações adicionais</label><textarea id="em-infos" rows="3"></textarea></div>
+<div class="campo"><label for="em-deslocamento">Consegue se deslocar até uma unidade?</label><select id="em-deslocamento" required><option value="">Selecione</option><option>Sim</option><option>Não</option><option>Não tenho certeza</option></select></div>
+</fieldset>
+<button class="btn btn-grande" type="submit">Enviar solicitação</button>
+</form>
+<aside id="painel-emergencia" class="card plano painel-emergencia" aria-live="polite"></aside>
+</div>
+</main>
+<div id="modal-cancelar-emergencia" class="modal-confirmacao" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-cancelar" hidden>
+  <div class="modal-confirmacao-card card">
+    <h2 id="titulo-modal-cancelar">Cancelar solicitação</h2>
+    <p>Deseja realmente cancelar sua solicitação de atendimento?</p>
+    <div class="acoes modal-acoes">
+      <button id="cancelar-modal-voltar" class="btn btn-sec" type="button">Voltar</button>
+      <button id="cancelar-modal-confirmar" class="btn btn-perigo" type="button">Confirmar cancelamento</button>
+    </div>
+  </div>
+</div>
+<footer class="rodape no-print"><p>Protótipo acadêmico fictício. Não substitui atendimento médico, não diagnostica e não possui conexão real com médicos, UBS ou SAMU.</p></footer>
+</body>
+</html>

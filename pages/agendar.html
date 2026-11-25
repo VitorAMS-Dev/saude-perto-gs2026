@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agendamentos — Saúde Perto</title>
+<meta name="description" content="Saúde Perto: a saúde pública mais próxima de quem precisa.">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/storage.js" defer></script>
+<script src="../js/agenda.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo no-print">
+  <div class="topo-in">
+    <a class="marca" href="../index.html" aria-label="Saúde Perto, página inicial">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Saúde Perto</span>
+    </a>
+    <button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="../index.html">Início</a>
+      <a href="agendar.html" aria-current="page">Agendamentos</a>
+      <a href="vacinas.html">Vacinas</a>
+      <a href="radar.html">Radar de Unidades</a>
+      <a href="emergencia.html">Emergência</a>
+      <a href="domiciliar.html">Atendimento Domiciliar</a>
+      <a href="conta.html">Minha Conta</a>
+      <button id="btn-sair" class="menu-sair" type="button">Sair</button>
+    </nav>
+    <button id="btn-modo" class="btn-modo" type="button" aria-pressed="false">Modo Conexão Fraca</button>
+    <div class="usuario"><span class="avatar" aria-hidden="true">MO</span><span class="usuario-nome">Maria Oliveira<small>Usuária demonstrativa</small></span></div>
+  </div>
+</header>
+<main id="conteudo" class="container">
+  <div class="no-print">
+    <h1>Agendamento inteligente</h1>
+    <p class="intro">Planeje seu atendimento considerando a distância até a unidade. Simulação para demonstração: nenhum horário é reservado de verdade.</p>
+    <p id="aviso-vacina" class="faixa" hidden></p>
+
+    <div class="duas-colunas">
+      <form id="form-agendamento" class="card form" novalidate aria-label="Formulário de agendamento">
+        <fieldset>
+          <legend><span class="num">1</span> Paciente</legend>
+          <div class="campo"><label for="paciente">Nome completo do paciente</label>
+            <input id="paciente" name="paciente" type="text" autocomplete="name" required aria-describedby="erro-paciente">
+            <p class="erro" id="erro-paciente" aria-live="polite"></p></div>
+        </fieldset>
+        <fieldset>
+          <legend><span class="num">2</span> Local e deslocamento</legend>
+          <div class="campo"><label for="comunidade">Comunidade ou região de origem</label>
+            <select id="comunidade" required aria-describedby="erro-comunidade"></select>
+            <p class="erro" id="erro-comunidade" aria-live="polite"></p></div>
+          <div class="campo"><label for="unidade">Unidade de saúde de destino</label>
+            <select id="unidade" required aria-describedby="erro-unidade"></select>
+            <p class="erro" id="erro-unidade" aria-live="polite"></p></div>
+          <div class="campo"><label for="distancia">Distância aproximada até a unidade (preenchida automaticamente)</label>
+            <input id="distancia" type="text" readonly placeholder="Será preenchida ao escolher a unidade"></div>
+        </fieldset>
+        <fieldset>
+          <legend><span class="num">3</span> Atendimento</legend>
+          <div class="campo"><label for="tipo">Tipo de atendimento</label>
+            <select id="tipo" required aria-describedby="erro-tipo">
+              <option value="">Selecione o tipo de atendimento</option>
+              <option>Consulta médica</option><option>Vacinação</option><option>Exame de rotina</option>
+              <option>Retorno médico</option><option>Atendimento integrado</option>
+            </select>
+            <p class="erro" id="erro-tipo" aria-live="polite"></p></div>
+          <div class="campo"><label for="data">Data desejada</label>
+            <input id="data" type="date" required aria-describedby="erro-data">
+            <p class="erro" id="erro-data" aria-live="polite"></p></div>
+          <div class="campo" role="group" aria-labelledby="l-turno">
+            <span id="l-turno" class="rotulo">Turno preferencial</span>
+            <div class="opcoes">
+              <label class="opcao"><input type="radio" name="turno" value="Manhã"> Manhã</label>
+              <label class="opcao"><input type="radio" name="turno" value="Tarde"> Tarde</label>
+              <label class="opcao"><input type="radio" name="turno" value="Qualquer horário disponível"> Qualquer horário</label>
+            </div>
+            <p class="erro" id="erro-turno" aria-live="polite"></p></div>
+          <div class="campo"><label for="transporte">Preferência de deslocamento</label>
+            <select id="transporte" required aria-describedby="erro-transporte">
+              <option value="">Selecione como pretende ir</option>
+              <option>Transporte comunitário</option><option>Transporte próprio</option>
+              <option>Transporte público</option><option>Outro</option>
+            </select>
+            <p class="erro" id="erro-transporte" aria-live="polite"></p></div>
+        </fieldset>
+        <button class="btn btn-grande" type="submit">Confirmar agendamento</button>
+      </form>
+
+      <aside class="card plano" aria-labelledby="t-plano">
+        <h2 id="t-plano">Planejamento do deslocamento</h2>
+        <div id="plano" aria-live="polite"></div>
+      </aside>
+    </div>
+  </div>
+
+  <section id="area-comprovante" class="print-area" aria-labelledby="titulo-comprovante" hidden>
+    <h2 id="titulo-comprovante" class="no-print" tabindex="-1">Seu comprovante</h2>
+    <article id="comprovante" class="comprovante"></article>
+    <div class="acoes no-print">
+      <button id="btn-copiar" class="btn" type="button">Copiar comprovante</button>
+      <button id="btn-imprimir" class="btn btn-sec" type="button">Imprimir / Salvar PDF</button>
+    </div>
+    <div id="copia-manual" class="no-print" hidden>
+      <label for="texto-manual">Copie o texto abaixo (Ctrl+C):</label>
+      <textarea id="texto-manual" rows="8" readonly></textarea>
+    </div>
+  </section>
+
+  <section id="historico" class="no-print" aria-labelledby="t-hist">
+    <h2 id="t-hist">Histórico de agendamentos</h2>
+    <div id="lista-historico" class="lista-cards"></div>
+  </section>
+</main>
+<footer class="rodape no-print">
+  <p>Saúde Perto é um protótipo acadêmico (Global Solution 2026/2 · FIAP). Todos os dados são fictícios. Não há integração com o SUS e nenhum agendamento é confirmação real de unidade de saúde.</p>
+</footer>
+</body>
+</html>

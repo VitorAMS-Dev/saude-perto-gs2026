@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Início — Saúde Perto</title>
+<meta name="description" content="Saúde Perto: a saúde pública mais próxima de quem precisa.">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/storage.js" defer></script>
+<script src="js/home.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo no-print">
+  <div class="topo-in">
+    <a class="marca" href="index.html" aria-label="Saúde Perto, página inicial">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M16 2C9.9 2 5 6.8 5 12.8 5 20.5 16 30 16 30s11-9.500 11-17.200C27 6.800 22.100 2 16 2z" fill="#087F5B"/><path d="M16 8v9M11.500 12.500h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Saúde Perto</span>
+    </a>
+    <button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="index.html" aria-current="page">Início</a>
+      <a href="pages/agendar.html">Agendamentos</a>
+      <a href="pages/vacinas.html">Vacinas</a>
+      <a href="pages/radar.html">Radar de Unidades</a>
+      <a href="pages/emergencia.html">Emergência</a>
+      <a href="pages/domiciliar.html">Atendimento Domiciliar</a>
+      <a href="pages/conta.html">Minha Conta</a>
+      <button id="btn-sair" class="menu-sair" type="button">Sair</button>
+    </nav>
+    <button id="btn-modo" class="btn-modo" type="button" aria-pressed="false">Modo Conexão Fraca</button>
+    <div class="usuario"><span class="avatar" aria-hidden="true">MO</span><span class="usuario-nome">Maria Oliveira<small>Usuária demonstrativa</small></span></div>
+  </div>
+</header>
+<main id="conteudo" class="container">
+  <section class="hero" aria-labelledby="t-hero">
+    <div class="hero-texto">
+      <p class="selo">Saúde pública mais próxima de quem precisa</p>
+      <h1 id="t-hero">Cuide da sua saúde sem precisar perder viagem.</h1>
+      <p class="sub">Organize seus atendimentos, acompanhe suas vacinas e saiba quando procurar sua unidade de saúde. Tudo em um só lugar.</p>
+      <div class="acoes">
+        <a class="btn btn-claro" href="pages/agendar.html">Agendar atendimento</a>
+        <a class="btn btn-contorno" href="pages/vacinas.html">Consultar minhas vacinas</a>
+      </div>
+    </div>
+    <svg class="hero-arte" viewBox="0 0 360 280" role="img" aria-label="Ilustração de uma comunidade rural conectada a uma unidade de saúde por uma estrada">
+      <circle cx="285" cy="52" r="26" fill="#F4B740"/>
+      <path d="M0 200 Q70 130 150 185 T360 150 V280 H0z" fill="#12A878"/>
+      <path d="M0 230 Q110 170 220 220 T360 200 V280 H0z" fill="#0A6B50"/>
+      <path d="M60 280 C110 235 170 245 205 205 S250 160 262 130" fill="none" stroke="#E8F5EF" stroke-width="12" stroke-linecap="round" stroke-dasharray="2 20"/>
+      <g fill="#E8F5EF"><path d="M28 205h38v28H28z"/><path d="M22 207l25-20 25 20z" fill="#F4B740"/><path d="M80 225h30v22H80z"/><path d="M75 227l20-16 20 16z" fill="#F4B740"/></g>
+      <g><rect x="238" y="95" width="60" height="42" rx="4" fill="#fff"/><path d="M268 102v28M254 116h28" stroke="#D94848" stroke-width="7" stroke-linecap="round"/></g>
+      <path d="M268 40c-11 0-20 8.500-20 19 0 14 20 32 20 32s20-18 20-32c0-10.500-9-19-20-19z" fill="#fff"/><circle cx="268" cy="59" r="7" fill="#087F5B"/>
+    </svg>
+  </section>
+
+  <section id="painel-resumo" aria-labelledby="t-resumo">
+    <h2 id="t-resumo">Seu painel de acompanhamento</h2>
+    <div class="grid-4">
+      <article class="card"><h3>Próximo atendimento</h3><div id="card-atendimento"></div></article>
+      <article class="card"><h3>Situação vacinal</h3><div id="card-vacinal"></div></article>
+      <article class="card"><h3>Campanhas disponíveis</h3><div id="card-campanhas"></div></article>
+      <article class="card"><h3>Distância da unidade</h3><div id="card-distancia"></div></article>
+      <article class="card"><h3>Emergência online</h3><div id="card-emergencia"></div></article>
+      <article class="card"><h3>Próxima visita domiciliar</h3><div id="card-domiciliar"></div></article>
+    </div>
+    <article class="card unidade-home" aria-labelledby="t-unidade-home">
+      <div>
+        <p class="tipo-unidade">Próxima unidade móvel na sua região</p>
+        <h3 id="t-unidade-home">Radar itinerante</h3>
+        <div id="card-unidade-movel"></div>
+      </div>
+      <a class="btn" href="pages/radar.html">Ver rota</a>
+    </article>
+  </section>
+
+  <section aria-labelledby="t-alertas">
+    <h2 id="t-alertas">Avisos para você</h2>
+    <ul id="lista-alertas" class="alertas"></ul>
+  </section>
+
+  <section aria-labelledby="t-solucao">
+    <h2 id="t-solucao">Como o Saúde Perto ajuda</h2>
+    <div class="grid-3">
+      <article class="card beneficio">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#087F5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        <h3>Planejamento de atendimento</h3><p>Organize sua ida à unidade e saiba o que levar antes de sair de casa.</p>
+      </article>
+      <article class="card beneficio">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#087F5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500 5-5"/></svg>
+        <h3>Prevenção</h3><p>Acompanhe suas vacinas, reforços e campanhas disponíveis.</p>
+      </article>
+      <article class="card beneficio">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#087F5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.500 12.500a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.500" r="1"/></svg>
+        <h3>Acesso facilitado</h3><p>Consulte informações salvas neste aparelho mesmo em conexão limitada.</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="rodape no-print">
+  <p>Saúde Perto é um protótipo acadêmico (Global Solution 2026/2 · FIAP). Todos os dados são fictícios. Não há integração com o SUS e nenhum agendamento é confirmação real de unidade de saúde.</p>
+</footer>
+</body>
+</html>
